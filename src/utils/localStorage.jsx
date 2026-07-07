@@ -1,13 +1,21 @@
+// localStorage.clear() ;
 
 const employees = [
   {
     id: 1,
     email: "rahul@example.com",
     password: "123",
+    name:'Rahul' ,
+     taskCount: {
+      active: 2,
+      newTask: 5,
+      completed: 3,
+      failed: 7,
+    },
     tasks: [
       {
         active: true,
-        newTask: true,
+        newTask: false,
         completed: false,
         failed: false,
         taskTitle: "Design Login Page",
@@ -35,12 +43,29 @@ const employees = [
         taskDate: "2026-07-01",
         category: "Backend",
       },
+      {
+        active: false,
+        newTask: true,
+        completed: false,
+        failed: true,
+        taskTitle: "Employee Dashboard",
+        taskDescription: "Develop the employee dashboard UI",
+        taskDate: "2026-07-01",
+        category: "Backend",
+      },
     ],
   },
   {
     id: 2,
     email: "priya@example.com",
     password: "123",
+    name:'Priya' ,
+     taskCount: {
+      active: 10,
+      newTask: 12,
+      completed: 17,
+      failed: 3,
+    },
     tasks: [
       {
         active: true,
@@ -88,6 +113,13 @@ const employees = [
     id: 3,
     email: "aman@example.com",
     password: "123",
+    name:'Aman' ,
+    taskCount: {
+      active: 11,
+      newTask: 9,
+      completed: 6,
+      failed: 5,
+    },
     tasks: [
       {
         active: true,
@@ -135,6 +167,13 @@ const employees = [
     id: 4,
     email: "neha@example.com",
     password: "123",
+    name:'Neha' ,
+    taskCount: {
+      active: 5,
+      newTask: 7,
+      completed: 2,
+      failed: 1,
+    },
     tasks: [
       {
         active: true,
@@ -172,6 +211,13 @@ const employees = [
     id: 5,
     email: "rohit@example.com",
     password: "123",
+    name:'Rohit' ,
+    taskCount: {
+      active: 6,
+      newTask: 5,
+      completed: 4,
+      failed: 3,
+    },
     tasks: [
       {
         active:true,
@@ -230,7 +276,8 @@ const employees = [
 const admin = [
   {
     id: 1,
-    email: "admin@example.com",
+    name:'Lalit Baghel' ,
+    email: "lalitbaghel0708@gmail.com",
     password: "123",
   },
 ];
@@ -240,8 +287,7 @@ export const setLocalStorage = ()=> {
     localStorage.setItem('admin',JSON.stringify(admin)) ; 
 }
 export function getLocalStorage(){
-    const employees_data = JSON.parse(localStorage.getItem('employees') ) ;
-    const admin_data = JSON.parse(localStorage.getItem('admin') ) ;
-    console.log(employees_data) ;
-    console.log(admin_data) ;
+    const employees = JSON.parse(localStorage.getItem('employees') ) ;
+    const admin = JSON.parse(localStorage.getItem('admin') ) ;
+    return {employees , admin} ;
 }
